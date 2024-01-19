@@ -25,7 +25,7 @@ if (window.innerWidth < 768) {
   options.threshold = 0.5;
 }
 
-const callback = (entries: any[], observer: any) => {
+const callback = (entries: any[]) => {
   entries.forEach((entry: IntersectionObserverEntry) => {
     if (entry.isIntersecting) {
       const headingId = entry.target.id;
