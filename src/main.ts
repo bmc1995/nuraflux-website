@@ -13,16 +13,10 @@ const options = {
   rootMargin: "0px",
   threshold: 0.5,
 };
-
-// adjust threshold based on screen size
-if (window.innerWidth < 768) {
-  options.threshold = 0.1;
-} else if (window.innerWidth < 992) {
+if (window.innerWidth < 992) {
   options.threshold = 0.3;
 } else if (window.innerWidth < 1200) {
   options.threshold = 0.4;
-} else {
-  options.threshold = 0.5;
 }
 
 const callback = (entries: any[]) => {
