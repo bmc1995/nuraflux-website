@@ -1,28 +1,57 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
   --primary-color: #646cff;
   --secondary-color: #a4a9ff;
-  --background-color: #242424;
   --text-color: #ffffffdc;
   --placeholder-color: #646cff8f;
   --accent-color: #535bf2;
-
+  --background-color: #242424;
+  --background-image: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
+  --header-background-color: #1a1a1a;
+  --nav-background-color: #1a1a1a;
+  --footer-background-color: #1a1a1a;
+  --button-background-color: #1a1a1a;
+  --button-background-color-hover: #535bf2;
+  --button-background-color-focus: #535bf2;
+  --button-background-color-active: #535bf2;
+  --button-text-color-hover: #ffffff;
+  --button-background-color-disabled: #1a1a1a;
+  --button-border-color: #646cff;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
   color-scheme: light dark;
   color: var(--text-color);
   background-color: var(--background-color);
-  background-image: linear-gradient(135deg, #242424 0%, #1a1a1a 100%);
+  background-image: var(--background-image);
   animation: sickBackground 10s infinite;
   background-size: 400% 400%;
   background-position: 0% 50%;
-
   scroll-behavior: smooth;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: #646cff;
+    --secondary-color: #535bf2;
+    --text-color: #000000dc;
+    --placeholder-color: #646cff8f;
+    --accent-color: #a4a9ff;
+    --background-color: #ffffff;
+    --background-image: linear-gradient(135deg, #ffffff 0%, #f2f2f2 100%);
+    --header-background-color: #f2f2f2;
+    --nav-background-color: #f2f2f2;
+    --footer-background-color: #f2f2f2;
+    --button-background-color: #f2f2f2;
+    --button-background-color-hover: #535bf2;
+    --button-background-color-focus: #535bf2;
+    --button-background-color-active: #535bf2;
+    --button-background-color-disabled: #f2f2f2;
+    --button-border-color: #646cff;
+  }
 }
 
 @keyframes sickBackground {
@@ -42,10 +71,11 @@ a {
   color: var(--primary-color);
   text-decoration: inherit;
 }
+
 body.hasHover a:hover,
 a:focus,
 a:active {
-  color: #747bff;
+  color: var(--secondary-color);
 }
 
 a:focus,
@@ -57,7 +87,6 @@ article {
   max-width: 800px;
   margin: 0 auto;
   padding: 2em;
-
   padding-top: 6em;
 }
 
@@ -72,7 +101,6 @@ article h2 {
   text-decoration: underline;
   text-decoration-color: var(--accent-color);
   text-underline-offset: 13px;
-
   cursor: default;
 }
 
@@ -151,15 +179,23 @@ article ol li {
 
 #contact form button {
   margin: 0.5em 0;
+  border: 1px solid var(--primary-color);
 }
 
 body.hasHover #contact form button:hover {
-  border-color: #535bf2;
+  border-color: var(--button-border-color);
+  color: var(--button-text-color-hover);
+  background-color: var(--button-background-color-hover);
+  transition: background-color 0.25s;
 }
 
 #contact form button:focus,
 #contact form button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+#contact form button:active {
+  border-color: var(--button-border-color);
 }
 
 #contact form button:disabled {
@@ -217,11 +253,11 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0.2em 1.5em;
-  background-color: #1a1a1a;
+  background-color: var(--header-background-color);
   border-bottom: 1px solid var(--accent-color);
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 12;
 }
 
 header a {
@@ -251,7 +287,7 @@ body.hasHover header .logo:hover {
 }
 
 footer {
-  background-color: #1a1a1a;
+  background-color: var(--footer-background-color);
   align-items: center;
   padding: 1.5em 2em;
   font-size: 0.9em;
@@ -346,13 +382,15 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--button-background-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 body.hasHover button:hover {
   border-color: var(--primary-color);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -360,7 +398,7 @@ button:focus-visible {
 
 nav {
   padding: 1.5em 2em;
-  background-color: #1a1a1a;
+  z-index: 1;
 }
 
 nav a:focus,
@@ -376,9 +414,8 @@ nav .nav-links {
 
 nav .nav-links a {
   margin: 0;
-  color: #fff;
+  color: var(--text-color);
   transition: color 0.25s;
-
   font-size: 1.2em;
   font-weight: 500;
   font-family: inherit;
@@ -411,22 +448,7 @@ hr {
   margin: 1em 0;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  body.hasHover a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
 @media screen and (max-width: 768px) {
-  /* Styles for screens smaller than 768px */
-  /* Add your CSS code here */
   h1 {
     font-size: 2em;
   }
@@ -436,47 +458,37 @@ hr {
   nav {
     padding: 0.5em;
   }
-
   nav .nav-links a {
     font-size: 1em;
   }
-
   nav .nav-links a:first-child {
     margin-left: 1em;
     font-size: 1em;
   }
-
   nav .nav-links a:last-child {
     margin-right: 0;
   }
-
   body.hasHover nav .nav-links a:hover,
   nav .nav-links a:focus,
   nav .nav-links a:active,
   nav .nav-links a.active {
     color: var(--primary-color);
   }
-
   header {
     padding: 0.5em;
     font-size: 0.5em;
   }
-
   article {
     padding: 1em;
     text-align: start;
-
     padding-top: 3em;
   }
-
   article h1 {
     font-size: 2em;
   }
-
   article h2 {
     font-size: 1.5em;
   }
-
   article h3 {
     font-size: 1.25em;
     text-align: center;
@@ -485,10 +497,8 @@ hr {
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   /* Styles for screens between 768px and 1024px */
-  /* Add your CSS code here */
 }
 
 @media screen and (min-width: 1024px) {
   /* Styles for screens larger than 1024px */
-  /* Add your CSS code here */
 }
