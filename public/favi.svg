@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+
+    <circle cx="400" cy="400" r="360" fill="#000" />
+
+    
+    <!-- <circle cx="400" cy="400" r="160" fill="transparent" stroke="#9e66ff" stroke-width="80" stroke-dasharray="4, 40" /> -->
+     
+     <circle cx="400" cy="400" r="240" fill="transparent" stroke="#4510b668" stroke-width="80" />
+     <circle cx="400" cy="400" r="240" fill="transparent" stroke="#9e66ff" stroke-width="80" stroke-dasharray="4, 80" stroke-round-linecap="round" />
+     
+    <line x1="400" y1="400" x2="400" y2="400" stroke="#007ACC" stroke-width="80" stroke-dasharray="4, 40" />
+    <text x="400" y="400" text-anchor="middle" stroke="#007ACC" font-size="32em" dy=".37em" font-family="sans-serif" font-weight="bold" fill="#556FAA" stroke-round-linecap="round">N</text>
+    <line x1="400" y1="400" x2="400" y2="400" stroke="#aaa" stroke-width="80" stroke-dasharray="4, 40" transform="rotate(30, 400, 400)" />
+</svg>
