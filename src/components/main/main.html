@@ -1,15 +1,5 @@
-<!-- BEGIN: Main Content Component -->
 <template id="main-content-template">
-  <style>
-    /* Add your component's styles here */
-    .main-content {
-      /* Your styles */
-    }
-  </style>
-
-  <article class="main-content">
-    <!-- Your main content goes here -->
-  </article>
+  <article class="main-content"></article>
 </template>
 
 <script>
@@ -17,18 +7,13 @@
     constructor() {
       super();
 
-      // Create a shadow root
       this.attachShadow({ mode: "open" });
 
-      // Get the template content
       const template = document.getElementById("main-content-template").content;
 
-      // Clone the template content and attach it to the shadow root
       this.shadowRoot.appendChild(template.cloneNode(true));
     }
   }
 
-  // Define the custom element
   customElements.define("main-content", MainContent);
 </script>
-<!-- END: Main Content Component -->
